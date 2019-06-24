@@ -6,17 +6,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/item_element_margin"
-        android:background="@color/colorPrimary"
         android:elevation="@dimen/item_elevation">
 
 
     <ImageView
             android:id="@+id/iv_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
             tools:srcCompat="@mipmap/ic_launcher"/>
 
     <LinearLayout
@@ -25,22 +25,22 @@
             android:orientation="vertical"
             android:background="@drawable/bg_banner_transparent"
             app:layout_constraintBottom_toBottomOf="@id/iv_content"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="4dp">
         <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/item_element_margin"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp"
                 tools:text="Test"/>
 
         <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/item_element_margin"
                 android:textSize="@dimen/secondary_text_size"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/textColorSecondary"
                 tools:text="2019.06.23"/>
     </LinearLayout>
 

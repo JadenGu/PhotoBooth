@@ -35,10 +35,16 @@ class PhotoListAdapter internal constructor(context: Context) : RecyclerView.Ada
         val tv_date: TextView = itemView.findViewById(R.id.tv_date)
 
         fun bindData(photo: Photo) {
-            Glide.with(iv_photo.context).load(photo.path).placeholder(R.mipmap.ic_launcher).into(iv_photo)
+            Glide.with(iv_photo.context).load(photo.path).into(iv_photo)
             tv_title.text = photo.name
             tv_date.text = photo.createdTime
         }
+    }
+
+
+    internal fun setPhotos(photos: List<Photo>) {
+        this.photos = photos
+        notifyDataSetChanged()
     }
 
 }
