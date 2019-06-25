@@ -9,7 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class PhotoListAdapter internal constructor(context: Context) : RecyclerView.Adapter<PhotoListAdapter.ViewHolder>() {
+class PhotoListAdapter internal constructor(private val context: Context) :
+    RecyclerView.Adapter<PhotoListAdapter.ViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
@@ -35,9 +36,12 @@ class PhotoListAdapter internal constructor(context: Context) : RecyclerView.Ada
         val tv_date: TextView = itemView.findViewById(R.id.tv_date)
 
         fun bindData(photo: Photo) {
-            Glide.with(iv_photo.context).load(photo.path).into(iv_photo)
+            Glide.with(context).load(photo.path).into(iv_photo)
             tv_title.text = photo.name
             tv_date.text = photo.createdTime
+            itemView.setOnClickListener {
+                DetailActivity.launch(context, photo.name, photo.path)
+            }
         }
     }
 
